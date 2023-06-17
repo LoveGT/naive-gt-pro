@@ -5,17 +5,17 @@
  */
 
 export function createViteProxy(isOpenProxy, envConfig) {
-  if (!isOpenProxy) return undefined;
+	if (!isOpenProxy) return undefined
 
-  const proxy = {
-    [envConfig.proxyPattern]: {
-      target: envConfig.target,
-      changeOrigin: true,
-      ws: true,
-      pathRewrite: (path) =>
-        path.replace(new RegExp(`^${envConfig.proxyPattern}`), ""),
-    }
-  };
-  
-  return proxy;
+	const proxy = {
+		[envConfig.proxyPattern]: {
+			target: envConfig.target,
+			changeOrigin: true,
+			ws: true,
+			pathRewrite: (path) =>
+				path.replace(new RegExp(`^${envConfig.proxyPattern}`), '')
+		}
+	}
+
+	return proxy
 }
