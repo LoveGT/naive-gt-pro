@@ -1,7 +1,5 @@
 import { defineConfig, loadEnv } from "vite";
-import vue from "@vitejs/plugin-vue";
-import { getRootPath, getSrcPath } from "./build/utils";
-import { createViteProxy } from "./build/config/proxy";
+import { getRootPath, getSrcPath, createViteProxy, setupVitePlugins } from './build'
 import { getServiceEnvConfig } from './.env-config';
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -21,7 +19,7 @@ export default defineConfig(({ command, mode }) => {
         "@": srcPath,
       },
     },
-    plugins: [vue()],
+    plugins: setupVitePlugins(viteEnv),
     css: {
       preprocessorOptions: {
         //define global scss variable

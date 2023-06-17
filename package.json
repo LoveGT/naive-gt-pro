@@ -9,11 +9,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@unocss/preset-attributify": "^0.53.1",
+    "@unocss/preset-icons": "^0.53.1",
+    "@unocss/preset-uno": "^0.53.1",
+    "@unocss/transformer-directives": "^0.53.1",
     "@vitejs/plugin-vue": "^4.1.0",
+    "rollup-plugin-visualizer": "^5.9.2",
     "sass": "^1.63.4",
-    "vite": "^4.3.9"
+    "unocss": "^0.53.1",
+    "vite": "^4.3.9",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-progress": "^0.0.7",
+    "vite-plugin-pwa": "^0.16.4",
+    "vite-plugin-vue-setup-extend": "^0.4.0"
   }
 }

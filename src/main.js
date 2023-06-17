@@ -1,4 +1,13 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+import { setupAssets } from "./plugins";
+async function setupApp() {
+  // import assets: js、css
+  setupAssets();
 
-createApp(App).mount('#app')
+  const app = createApp(App);
+
+  app.mount("#app");
+}
+
+setupApp();
