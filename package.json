@@ -14,10 +14,13 @@
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "axios": "^1.4.0",
     "form-data": "^4.0.0",
+    "lodash-es": "^4.17.21",
     "mockjs": "^1.1.0",
     "naive-ui": "^2.34.4",
+    "pinia": "^2.1.4",
     "qs": "^6.11.2",
-    "vue": "^3.2.47"
+    "vue": "^3.2.47",
+    "vue-router": "^4.2.2"
   },
   "devDependencies": {
     "@unocss/preset-attributify": "^0.53.1",
