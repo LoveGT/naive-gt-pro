@@ -6,13 +6,21 @@ import visualizer from './visualizer'
 import compress from './compress'
 import pwa from './pwa'
 import unplugin from './unplugin'
+import mock from './mock'
 
 /**
  * vite插件
  * @param viteEnv - 环境变量配置
  */
 export function setupVitePlugins(viteEnv) {
-	const plugins = [vue(), vueJsx(), ...unplugin(viteEnv), UnoCSS(), progress()]
+	const plugins = [
+		vue(),
+		vueJsx(),
+		...unplugin(viteEnv),
+		UnoCSS(),
+		mock,
+		progress()
+	]
 	if (viteEnv.VITE_VISUALIZER === 'Y') {
 		plugins.push(visualizer)
 	}

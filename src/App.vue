@@ -14,13 +14,18 @@
 
 <script setup>
 import { onMounted } from 'vue'
+import { isNumber, localStorage, sessionStorage } from '@/utils'
 import NaiveProvider from './components/common/naive-provider.vue'
 
 onMounted(() => {
+	const vueNo = 1
+	sessionStorage.set('vueNo', vueNo + 1)
+	console.log(isNumber(1))
 	$loadingBar.start()
 	setTimeout(() => {
 		$loadingBar.finish()
 		$message.success('加载完成')
+		console.log(sessionStorage.get('vueNo'))
 	}, 500)
 })
 </script>
