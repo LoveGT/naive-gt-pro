@@ -11,13 +11,13 @@ export default function useBoolean(initValue = false) {
 		bool.value = value
 	}
 	function setTrue() {
-		setBoolean(true)
+		setBool(true)
 	}
 	function setFalse() {
-		setBoolean
+		setBool(false)
 	}
 	function toggle() {
-		setBoolean(!bool.value)
+		setBool(!bool.value)
 	}
 
 	return {

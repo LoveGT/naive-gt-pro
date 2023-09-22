@@ -1,29 +1,83 @@
-export const basicRoutes = [
+import { getLoginModuleRegExp } from '@/utils'
+
+/**
+ * 根路由： /
+ */
+export const ROOT_ROUTE = {
+	name: 'root',
+	path: '/',
+	redirect: import.meta.env.VITE_ROUTE_HOME_PATH,
+	meta: {
+		title: 'Root'
+	}
+}
+
+/**
+ * 固定的路由
+ */
+export const constantRoutes = [
+	ROOT_ROUTE,
 	{
-		name: 'LOGIN',
+		name: 'login',
 		path: '/login',
-		component: () => import('@/views/login/index.vue'),
+		component: 'self',
+		props: (route) => {
+			const moduleType = route.params.module || 'pwd-login'
+			return {
+				module: moduleType
+			}
+		},
 		isHidden: true,
 		meta: {
-			title: '登录页'
+			title: '登录页',
+			dynamicPath: `/login/:module(${getLoginModuleRegExp()})?`,
+			singleLayout: 'blank'
 		}
 	},
-
 	{
-		name: 'Dashboard',
-		path: '/',
-		component: () => import('@/views/dashboard/index.vue'),
+		name: 'constant-page',
+		path: '/constant-page',
+		component: 'self',
 		meta: {
-			title: 'Dashboard'
+			title: '固定页面',
+			singleLayout: 'blank'
 		}
 	},
-
 	{
-		name: 'TestUnocss',
-		path: '/test/unocss',
-		component: () => import('@/views/test-page/unocss/index.vue'),
+		name: '403',
+		path: '/403',
+		component: 'self',
 		meta: {
-			title: '测试unocss'
+			title: '无权限',
+			singleLayout: 'blank'
+		}
+	},
+	{
+		name: '404',
+		path: '/404',
+		component: 'self',
+		meta: {
+			title: '未找到',
+			singleLayout: 'blank'
+		}
+	},
+	{
+		name: '500',
+		path: '/500',
+		component: 'self',
+		meta: {
+			title: '服务器错误',
+			singleLayout: 'blank'
+		}
+	},
+	// 匹配无效路径的路由
+	{
+		name: 'not-found',
+		path: '/:pathMatch(.*)*',
+		component: 'blank',
+		meta: {
+			title: '未找到',
+			singleLayout: 'blank'
 		}
 	}
 ]

@@ -1,3 +1,4 @@
+import { userModel } from '../model'
 /** 参数错误的状态码 */
 const ERROR_PARAM_CODE = 10000
 

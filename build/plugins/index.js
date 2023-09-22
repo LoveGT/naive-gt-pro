@@ -18,7 +18,7 @@ export function setupVitePlugins(viteEnv) {
 		vueJsx(),
 		...unplugin(viteEnv),
 		UnoCSS(),
-		mock,
+		mock(viteEnv),
 		progress()
 	]
 	if (viteEnv.VITE_VISUALIZER === 'Y') {

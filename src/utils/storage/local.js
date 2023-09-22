@@ -51,4 +51,4 @@ function createLocalStorage() {
 	}
 }
 
-export const localStorage = createLocalStorage()
+export const localStg = createLocalStorage()

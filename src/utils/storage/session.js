@@ -35,4 +35,4 @@ function createSessionStorage() {
 	}
 }
 
-export const sessionStorage = createSessionStorage()
+export const sessionStg = createSessionStorage()

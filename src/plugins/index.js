@@ -1,3 +1,3 @@
 import setupAssets from './assets'
-
-export { setupAssets }
+import setupVXETable from './vxe-table'
+export { setupAssets, setupVXETable }

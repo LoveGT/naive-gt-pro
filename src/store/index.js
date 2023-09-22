@@ -10,3 +10,4 @@ export function setupStore(app) {
 }
 
 export * from './modules'
+export * from './subscribe'

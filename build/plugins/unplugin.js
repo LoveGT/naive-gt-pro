@@ -5,12 +5,31 @@
 import VueDefineOption from 'unplugin-vue-define-options/vite'
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import {
+	createStyleImportPlugin,
+	VxeTableResolve
+} from 'vite-plugin-style-import'
 
 export default function unplugin(viteEnv) {
 	return [
 		VueDefineOption({}),
 		Components({
-			resolvers: [NaiveUiResolver()]
+			resolvers: [
+				NaiveUiResolver(),
+				IconsResolver({
+					customCollections: [collectionName],
+					componentPrefix: VITE_ICON_PREFIX
+				})
+			]
+		}),
+		createSvgIconsPlugin({
+			iconDirs: [localIconPath],
+			symbolId: `${VITE_ICON_LOCAL_PREFIX}-[dir]-[name]`,
+			inject: 'body-last',
+			customDomId: '__SVG_ICON_LOCAL__'
+		}),
+		createStyleImportPlugin({
+			resolves: [VxeTableResolve()]
 		})
 	]
 }
